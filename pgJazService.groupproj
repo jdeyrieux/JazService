@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{0107DA2A-806C-426B-A5C6-A3D680FB7DE9}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="JazService.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="JazService">
+        <MSBuild Projects="JazService.dproj"/>
+    </Target>
+    <Target Name="JazService:Clean">
+        <MSBuild Projects="JazService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="JazService:Make">
+        <MSBuild Projects="JazService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="JazService"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="JazService:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="JazService:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
