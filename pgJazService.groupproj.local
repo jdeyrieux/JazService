@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions/>
+  <Transactions>
+    <Transaction>2014/11/03 15:02:21.002,C:\Users\Jacques\Documents\GitHub\JazService\pgJazService.groupproj=C:\Users\Jacques\Documents\Embarcadero\Studio\Projets\ProjectGroup1.groupproj</Transaction>
+  </Transactions>
   <Default.Personality>
     <Projects ActiveProject="C:\Users\Jacques\Documents\GitHub\JazService\JazService.dproj"/>
   </Default.Personality>

@@ -43,6 +43,6 @@ Temporary Items
 .apdisk
 
 *.dcu
-*.~1~
+*.~*
 *.map
 *.drc
