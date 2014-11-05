@@ -1,7 +1,7 @@
 object MainForm: TMainForm
   Left = 225
   Top = 106
-  Caption = 'AeTrayMenu'
+  Caption = 'JaZMenu'
   ClientHeight = 141
   ClientWidth = 297
   Color = clBtnFace

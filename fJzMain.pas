@@ -260,7 +260,7 @@ begin
     (HtmlActions.Objects[J] as TTMAction).Free;
   FreeAndNil(FHtmlActions);
   FreeAndNil(FVariables);
-  FreeAndNil(FServices);
+//  FreeAndNil(FServices);
 
   inherited;
 end;
@@ -304,7 +304,7 @@ procedure TMainForm.LeftRightClickPopupPopup(Sender: TObject);
           EnableItems(Item.Items[I]);
         end
         else
-          if Tag <> 0 then
+          if (Tag <> 0) and Active then
             Enabled := TTMAction(Tag).CanExecute;
   end;
 
@@ -332,7 +332,7 @@ procedure TMainForm.LoadBuiltInVariables;
 
 begin
   { DONE 3 -cMissing feaures : Automatically add built-in variables }
-  AddVar('AeTrayMenuPath', ExtractFilePath(Application.ExeName));
+  AddVar('AppPath', ExtractFilePath(Application.ExeName));
   AddVar('Windows', GetWinDir);
   AddVar('System', GetSystemDir);
   AddVar('SysDrive', GetSystemDrive);
@@ -443,7 +443,7 @@ begin
       Exit;
     end;
     //Set the form caption
-    Caption := 'AeTrayMenu[' + ID + ']';
+    Caption := 'JaZ Service[' + ID + ']';
   end;  //if mutexhandle = nil
 
   { Show the tray icon }

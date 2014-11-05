@@ -277,8 +277,7 @@ begin
     with Variables[I] as TVariableBase do
     begin
       if (vfIsPath in Flags) and (RightStr(Value, 1) = '\') then
-        StrReplace(S, StrQuote(Name, '%') + '\', StrQuote(Name, '%'),
-          [rfIgnoreCase, rfReplaceAll]);
+        StrReplace(S, StrQuote(Name, '%') + '\', StrQuote(Name, '%'), [rfIgnoreCase, rfReplaceAll]);
       if AnsiPos(StrQuote(Name, '%'), S) <> 0 then
         StrReplace(S, StrQuote(Name, '%'), Value, [rfIgnoreCase, rfReplaceAll]);
     end;  //with variables[i]

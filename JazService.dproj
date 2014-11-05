@@ -77,7 +77,10 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_ExeOutput>C:\bpack\Delphi\aetraymenu</DCC_ExeOutput>
+        <Debugger_DebugSourcePath>C:\Users\Jacques\Documents\GitHub\JazService;$(Debugger_DebugSourcePath)</Debugger_DebugSourcePath>
+        <Debugger_CWD>C:\bpack\Delphi\JazStack</Debugger_CWD>
+        <Debugger_RunParams>-scriptfile=jazstack.ini</Debugger_RunParams>
+        <DCC_ExeOutput>C:\bpack\Delphi\jazstack</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_DebugDCUs>false</DCC_DebugDCUs>
@@ -116,6 +119,8 @@
         <DCCReference Include="uJzMsgs.pas"/>
         <DCCReference Include="uJzSrvCtrl.pas"/>
         <DCCReference Include="uJzStruct.pas"/>
+        <None Include="C:\bpack\Delphi\JazStack\jazstack.conf"/>
+        <None Include="C:\bpack\Delphi\JazStack\jazstack.ini"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -145,6 +150,24 @@
                 <DeployFile LocalName="Win32\Debug\JazService.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>JazService.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="C:\bpack\Delphi\aetraymenu\JazService.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>JazService.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="C:\bpack\Delphi\JazStack\jazservice.ini" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="C:\bpack\Delphi\JazStack\jazservice.conf" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -482,6 +505,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

@@ -475,7 +475,7 @@ begin
     else
       case Action of
         saInstall:
-          Result := (State = svsNotInstalled);
+          Result := (State = svsStopped) and Active;
         saUninstall:
           Result := (State = svsStopped);
         saStartResume:
@@ -535,7 +535,8 @@ begin
               end;
             end;
         saStop: begin
-            Stop;
+            if Active then
+              Stop;
             if afWaitUntilTerminated in Flags then
               while State = svsStopPending do
               begin

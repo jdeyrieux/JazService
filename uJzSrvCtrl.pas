@@ -34,10 +34,13 @@ uses
 
 type
   { Indicates the status of the service }
-  TServiceState = (svsNotInstalled = 0, svsStopped = $00000001, svsStartPending, svsStopPending,
+  TServiceState = (svsStopped = $00000001, svsStartPending, svsStopPending,
       svsRunning, svsContinuePending, svsPausePending, svsPaused);
   TServiceControl = (svcStop, svcPauseContinue);
   TServiceControls = set of TServiceControl;
+
+  // Add service error
+  TServiceError = (seNone, seAccessDenied, seInvalidHandle, seInvalidName, seServiceDoesNotExist);
 
   EServiceException = class(Exception)
   public
@@ -53,6 +56,7 @@ type
     FServiceName: String;
     FServiceHandle: SC_HANDLE;
     FSCManagerHandle: SC_HANDLE;
+    FError: TServiceError;
     procedure SetServiceName(const Value: String);
     function GetDisplayName: String;
     function GetState: TServiceState;
@@ -77,6 +81,8 @@ type
     property ControlsAccepted: TServiceControls read GetControlsAccepted;
     { Can be used to retrieve the "display name" of the service }
     property DisplayName: String read GetDisplayName;
+    { Can be used to retrieve the last error on last action }
+    property Error: TServiceError read FError;
     { Can be used to retrieve the status of the service }
     property State: TServiceState read GetState;
     { The name of the service (*not* the display name). If TTMService has
@@ -144,9 +150,10 @@ procedure TTMService.ControlService(ControlCode: Cardinal);
 var
   ServiceStatus: TServiceStatus;
 begin
-  VerifyActive;
+//  VerifyActive;
 
-  if not WinSvc.ControlService(ServiceHandle, ControlCode, ServiceStatus) then
+  if Active and (State in [svsStartPending, svsRunning, svsContinuePending, svsPausePending, svsPaused])
+    and (not WinSvc.ControlService(ServiceHandle, ControlCode, ServiceStatus)) then
     raise EServiceException.Create('Status Controlservice '+FServiceName, GetLastError);
 end;
 
@@ -157,10 +164,10 @@ end;
 
 destructor TTMService.Destroy;
 begin
-  if Active then
+  if Active and (State = svsStopped) then
     Close;
 
-  inherited Destroy;
+//  inherited Destroy;
 end;
 
 function TTMService.GetActive: Boolean;
@@ -237,7 +244,7 @@ var
   Status: TServiceStatus;
 begin
   if (ServiceHandle = 0) then
-    Result := TServiceState.svsNotInstalled
+    Result := TServiceState.svsStopped
   else begin
     GetServiceStatus(Status);
     Result := TServiceState(Status.dwCurrentState);
@@ -247,6 +254,7 @@ end;
 procedure TTMService.Open;
 var
   S: string;
+  LastError: Cardinal;
 begin
   if Active then
     Close;
@@ -265,7 +273,16 @@ begin
         SERVICE_PAUSE_CONTINUE or SERVICE_QUERY_CONFIG or SERVICE_QUERY_STATUS or
         SERVICE_START or SERVICE_STOP);
     if FServiceHandle = 0 then
-      raise EServiceException.Create('Open Service '+FServiceName, GetLastError);
+    begin
+      LastError := GetLastError;
+      case LastError of
+        ERROR_ACCESS_DENIED: FError := seAccessDenied;
+        ERROR_INVALID_HANDLE: FError := seInvalidHandle;
+        ERROR_INVALID_NAME: FError := seInvalidName;
+        ERROR_SERVICE_DOES_NOT_EXIST: FError := seServiceDoesNotExist;
+      end;
+      raise EServiceException.Create(Format('Open Service %s error (%d) ',[FServiceName, LastError]), LastError);
+    end;
   except
     //Clean up the service control manager handle
     CloseServiceHandle(SCManagerHandle);

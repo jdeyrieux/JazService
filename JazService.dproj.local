@@ -1,15 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2014/11/03 15:00:09.401,=C:\Users\Jacques\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
-    <Transaction>2014/11/03 15:00:36.338,C:\Users\Jacques\Documents\GitHub\JazService\JazService.dproj=C:\Users\Jacques\Documents\Embarcadero\Studio\Projets\Project1.dproj</Transaction>
-    <Transaction>2014/11/03 15:00:54.332,=C:\Users\Jacques\Documents\GitHub\JazService\fJzAbout.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.475,=C:\Users\Jacques\Documents\GitHub\JazService\fJzHtmlWindow.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.663,=C:\Users\Jacques\Documents\GitHub\JazService\fJzMain.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.722,=C:\Users\Jacques\Documents\GitHub\JazService\uJzCmnFunc.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.791,=C:\Users\Jacques\Documents\GitHub\JazService\uJzConfig.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.847,=C:\Users\Jacques\Documents\GitHub\JazService\uJzMsgs.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.901,=C:\Users\Jacques\Documents\GitHub\JazService\uJzSrvCtrl.pas</Transaction>
-    <Transaction>2014/11/03 15:00:54.962,=C:\Users\Jacques\Documents\GitHub\JazService\uJzStruct.pas</Transaction>
+	<Transactions>
+    <Transaction>2014/11/03 15:00:09.000.401,=C:\Users\Jacques\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
+    <Transaction>2014/11/03 15:00:36.000.338,C:\Users\Jacques\Documents\GitHub\JazService\JazService.dproj=C:\Users\Jacques\Documents\Embarcadero\Studio\Projets\Project1.dproj</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.791,=C:\Users\Jacques\Documents\GitHub\JazService\uJzConfig.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.962,=C:\Users\Jacques\Documents\GitHub\JazService\uJzStruct.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.901,=C:\Users\Jacques\Documents\GitHub\JazService\uJzSrvCtrl.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.475,=C:\Users\Jacques\Documents\GitHub\JazService\fJzHtmlWindow.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.722,=C:\Users\Jacques\Documents\GitHub\JazService\uJzCmnFunc.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.847,=C:\Users\Jacques\Documents\GitHub\JazService\uJzMsgs.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.663,=C:\Users\Jacques\Documents\GitHub\JazService\fJzMain.pas</Transaction>
+    <Transaction>2014/11/03 15:00:54.000.332,=C:\Users\Jacques\Documents\GitHub\JazService\fJzAbout.pas</Transaction>
+    <Transaction>2014/11/05 12:47:10.613,=C:\bpack\Delphi\JazStack\jazservice.conf</Transaction>
+    <Transaction>2014/11/05 12:47:10.715,=C:\bpack\Delphi\JazStack\jazservice.ini</Transaction>
+    <Transaction>2014/11/05 13:00:09.968,C:\bpack\Delphi\JazStack\jazstack.ini=C:\bpack\Delphi\JazStack\jazservice.ini</Transaction>
+    <Transaction>2014/11/05 13:00:16.540,C:\bpack\Delphi\JazStack\jazstack.conf=C:\bpack\Delphi\JazStack\jazservice.conf</Transaction>
   </Transactions>
 </BorlandProject>

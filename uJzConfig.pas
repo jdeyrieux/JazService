@@ -1618,6 +1618,7 @@ begin
       except
         //Apparently, the service hasn't been installed; the menu items
         // will be disabled
+
       end;  //try..except
     end;  //with newserviceitem
   except
